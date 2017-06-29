@@ -19,9 +19,9 @@
 .navbar {
   background-color: rgba(22,145,78,.8);
   border: transparent;
-  height: 50px;
   min-height: 50px;
-  padding-left: 1em;
+  padding: 5px 1em;
+  margin-bottom: 2em;
 }
 
 /* navbar anchor text style */
