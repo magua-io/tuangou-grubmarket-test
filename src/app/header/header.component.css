@@ -1,0 +1,63 @@
+
+/*For navbar right button on small device*/
+.visible-xs-block {
+    height: 50px!important;
+}
+
+.auth-mobile {
+  float: right;
+  line-height: 50px;
+  padding: 0px 15px;
+}
+
+/* Make navbar-default background color transparent */
+.navbar-default {
+  background-color: transparent;
+}
+
+/* customize navbar style */
+.navbar {
+  background-color: rgba(22,145,78,.8);
+  border: transparent;
+  height: 50px;
+  min-height: 50px;
+  padding-left: 1em;
+}
+
+/* navbar anchor text style */
+.navbar-header>a, .navbar-nav>li>a {
+  color: #fff;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 1.2em;
+}
+
+/* navbar anchor text hover style */
+.navbar-header>a:hover, .navbar-nav>li>a:hover {
+  color: #fec72e;
+  text-decoration: none;
+  background-color:  rgba(22,145,78,.9);
+}
+
+/* Cancel brand image hover style */
+#logo:hover {
+  background-color:  transparent;
+}
+
+/* Navbar-brand style */
+.navbar-brand {
+    padding: 0;
+    margin-right: 2em;
+}
+
+/* navbar-brand img style */
+.navbar .navbar-brand img {
+    width: 160px;
+    height: auto;
+}
+
+/* Customize navbar-brand img position */
+.navbar-brand>img {
+    margin-top: 6px;
+}
+
+
