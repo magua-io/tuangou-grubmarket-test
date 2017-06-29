@@ -8,7 +8,11 @@ export class DealItem {
     public description: string,
     public id: string,
     public imagePath: string,
-    public maxAvailable: 5,
+    public itemCode: string,
+    public itemId: string,
+    public itemOrder: number,
+    public maxAvailable: number,
+    public sold: number,
     public thumbnailPath: string,
     public unitPlural: string,
     public unitPrice: number
@@ -19,7 +23,11 @@ export class DealItem {
     this.description = description;
     this.id = id;
     this.imagePath = imagePath;
+    this.itemCode = itemCode;
+    this.itemId = itemId;
+    this.itemOrder = itemOrder;
     this.maxAvailable = maxAvailable;
+    this.sold = sold;
     this.thumbnailPath = thumbnailPath;
     this.unitPlural = unitPlural;
     this.unitPrice = unitPrice;
