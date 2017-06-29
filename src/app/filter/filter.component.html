@@ -1,3 +1,25 @@
-<p>
-  filter works!
-</p>
+<div class="filter-container">
+    <div class="dropdown" appDropdown>
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <i class="fa fa-eye"></i> 团购贴
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#">团购贴</a></li>
+        <li><a href="#">单项商品</a></li>
+      </ul>
+    </div>
+
+    <div class="dropdown" appDropdown>
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <i class="fa fa-filter"></i> Filter ({{ countFilters() }})
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li (click)="onToggleOnlyOfficialTuangou($event)"><a><i [class]="onlyOfficialTuangou ? 'fa fa-2 fa-check-square-o' : 'fa fa-2 fa-square-o'"></i> 只显示官团</a></li>
+        <li (click)="onToggleOnlyActiveTuangou($event)"><a><i [class]="onlyActiveTuangou ? 'fa fa-2 fa-check-square-o' : 'fa fa-2 fa-square-o'"></i> 只显示未结团</a></li>
+        <li role="separator" class="divider"></li>
+        <li (click)="onApplyFilters()"><a href="#"><i class="fa fa-refresh"></i> 更新</a></li>
+      </ul>
+    </div>
+</div>
