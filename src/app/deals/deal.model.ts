@@ -1,14 +1,19 @@
+import { DealItem } from './deal-item.model';
+import { DealPickupLocation } from 'app/shared/deal-pickup-location.model';
+import { User } from 'app/shared/user.model';
+
 export class Deal {
 
   constructor(
-    public dealItems: string[],
-    public dealPickupLocations: string[],
+    public dealItems: DealItem[],
+    public dealPickupLocations: DealPickupLocation[],
     public description: string,
     public endTime: number,
     public id: string,
     public likesCount: number,
     public official: boolean,
     public orderCount: number,
+    public owner: User,
     public pickupTime: number,
     public startTime: number,
     public status: string,
@@ -23,11 +28,12 @@ export class Deal {
     this.likesCount = likesCount;
     this.official = official;
     this.orderCount = orderCount;
+    this.owner = owner;
     this.pickupTime = pickupTime;
     this.startTime = startTime;
     this.status = status;
     this.title = title;
     this.viewCount = viewCount;
   }
-  
+
 }
