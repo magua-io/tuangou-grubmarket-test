@@ -14,7 +14,11 @@ export class DealService {
 
   dealsChanged = new Subject<Deal[]>();
 
+  dealChanged = new Subject<Deal>();
+
   private deals: Deal[] = [];
+
+  fetchedDeal: Deal;
 
   constructor(private jsonp: Jsonp, private http: Http) {}
 
@@ -53,6 +57,28 @@ export class DealService {
           this.setDeals(deals);
         }
       );
+  }
+
+  fetchDeal(id: string) {
+    this.http.get('https://tuangou.grubmarket.com/api/deals/' + id, {
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer c2669247-877e-4eac-aaba-d8de5569af7d',
+        'Accept-Language': 'zh-CN'
+      })
+    })
+      .map(
+        (response: Response) => {
+          console.log("response: ", response.json());
+          const deal: Deal = response.json();
+          console.log("Got deals: ", deal);
+          return deal;
+        }
+      ).subscribe(
+        (deal: Deal) => {
+          this.dealChanged.next(deal);
+        }
+      ); 
   }
 
   private handleServerError(error: Response) {

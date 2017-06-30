@@ -2,3 +2,7 @@
 body {
   background-color: #F1F2F7;
 }
+
+img.insideImg {
+  width: 100%;
+}

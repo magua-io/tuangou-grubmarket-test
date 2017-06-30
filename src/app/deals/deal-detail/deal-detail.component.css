@@ -1,0 +1,10 @@
+.thumbnail {
+  padding: 30px;
+  border-radius: 5px;
+  border: none;
+}
+
+.deal-title {
+  color: gray;
+  font-size: 15px;
+}
