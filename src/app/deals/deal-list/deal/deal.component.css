@@ -3,6 +3,8 @@
   padding: 7px;
 }
 
+
+
 .thumbnail-img {
   height: 250px;
   width: 100%;
@@ -16,6 +18,13 @@
   border-radius: 5px;
   overflow: hidden;
   margin: 0;
+  transition: all 0.2s ease;
+}
+
+.thumbnail:hover {
+  cursor: pointer;
+  transform:translateY(-20px);
+  transition: all 0.2s ease-in-out;
 }
 
 .image-container {
@@ -84,3 +93,4 @@
   margin: 0 10px;
   color: #afb2b4;
 }
+
