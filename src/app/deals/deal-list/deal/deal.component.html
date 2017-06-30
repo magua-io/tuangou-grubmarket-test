@@ -4,7 +4,7 @@
       <img class="thumbnail-img" [src]="deal.dealItems[0].imagePath" alt="...">
       <span *ngIf="deal.status === 'ACTIVE'" class="deal-date">{{ getDate(deal.startTime) }} - {{ getDate(deal.endTime) }}</span>
       <span *ngIf="deal.status === 'INACTIVE'" class="deal-end">已截团</span>
-      <img class="avatar" [src]="deal.owner.profileImage" alt="" />
+      <img class="avatar" [src]="deal.owner.profileImage || 'assets/default_profile.svg'" alt="" />
     </div>
     <div class="caption">
       <p>{{ deal.title }}</p>
