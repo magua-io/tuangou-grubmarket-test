@@ -13,6 +13,7 @@ import { DealItemComponent } from './deals/deal-list/deal/deal-item/deal-item.co
 
 import { DealService } from './deals/deal.service';
 import { requestOptionsProvider } from './shared/http-client.service';
+import { TimeService } from './shared/time.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { requestOptionsProvider } from './shared/http-client.service';
     HttpModule,
     JsonpModule
   ],
-  providers: [ DealService, requestOptionsProvider ],
+  providers: [ DealService, requestOptionsProvider, TimeService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

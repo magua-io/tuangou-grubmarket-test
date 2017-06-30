@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { TimeService } from 'app/shared/time.service';
+
 import { Deal } from '../../deal.model';
 
 @Component({
@@ -12,9 +14,14 @@ export class DealComponent implements OnInit {
   @Input() deal: Deal;
   @Input() index: number;
 
-  constructor() { }
+  constructor(private timeService: TimeService) { }
 
   ngOnInit() {
+  }
+
+  getDate(timestamp: number) {
+    console.log("timestamp: ", timestamp);
+    return this.timeService.timestampToDate(timestamp);
   }
 
 }

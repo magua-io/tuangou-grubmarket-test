@@ -22,13 +22,17 @@
   position: relative;
 }
 
-.deal-date {
+.deal-date, .deal-end {
   padding: 10px 20px;
   position: absolute; 
   bottom: 0; 
   left: 0;
   background-color: rgba(73,189,153,.8);
   color: white;
+}
+
+.deal-end {
+  background-color: rgba(208,98,98,.8);
 }
 
 .avatar {
