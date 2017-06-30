@@ -14,6 +14,7 @@ import { DealItemComponent } from './deals/deal-list/deal/deal-item/deal-item.co
 import { DealService } from './deals/deal.service';
 import { requestOptionsProvider } from './shared/http-client.service';
 import { TimeService } from './shared/time.service';
+import { DealDetailComponent } from './deals/deal-detail/deal-detail.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TimeService } from './shared/time.service';
     DealsComponent,
     DealListComponent,
     DealComponent,
-    DealItemComponent
+    DealItemComponent,
+    DealDetailComponent
   ],
   imports: [
     BrowserModule,
