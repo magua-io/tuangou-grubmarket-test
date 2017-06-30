@@ -20,7 +20,6 @@ export class DealComponent implements OnInit {
   }
 
   getDate(timestamp: number) {
-    console.log("timestamp: ", timestamp);
     return this.timeService.timestampToDate(timestamp);
   }
 

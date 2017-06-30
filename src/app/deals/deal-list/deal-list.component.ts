@@ -1,5 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewChecked, ViewChild, HostListener, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
 import { Subscription } from 'rxjs/Subscription';
+
 
 import { Deal } from '../deal.model';
 import { DealService } from '../deal.service';

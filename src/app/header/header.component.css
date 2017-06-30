@@ -33,8 +33,12 @@
 
 /* navbar anchor text hover style */
 .navbar-header>a:hover, .navbar-nav>li>a:hover {
-  color: #fec72e;
   text-decoration: none;
+  background-color:  rgba(22,145,78,.9);
+}
+
+.navbar-nav>.active>a {
+  color: #fec72e;
   background-color:  rgba(22,145,78,.9);
 }
 

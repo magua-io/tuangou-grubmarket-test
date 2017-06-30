@@ -1,18 +1,22 @@
-<div class="deal col-xs-12 col-sm-6 col-md-3">
-  <div class="thumbnail">
-    <div class="image-container">
-      <img class="thumbnail-img" [src]="deal.dealItems[0].imagePath" alt="...">
-      <span *ngIf="deal.status === 'ACTIVE'" class="deal-date">{{ getDate(deal.startTime) }} - {{ getDate(deal.endTime) }}</span>
-      <span *ngIf="deal.status === 'INACTIVE'" class="deal-end">已截团</span>
-      <img class="avatar" [src]="deal.owner.profileImage || 'assets/default_profile.svg'" alt="" />
-    </div>
-    <div class="caption">
-      <p>{{ deal.title }}</p>
-    </div>
-    <div class="thumbnail-bottom">
-      <span class="thumbnail-bottom-info"><i class="fa fa-eye"></i> {{ deal.viewCount }}</span>
-      <span class="thumbnail-bottom-info"><i class="fa fa-thumbs-up"></i> {{ deal.likesCount }}</span>
-      <span class="thumbnail-bottom-info"><i class="fa fa-shopping-cart"></i> {{ deal.orderCount }}</span>
+<a
+  [routerLink]="deal.id"
+>
+  <div class="deal col-xs-12 col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <div class="image-container">
+        <img class="thumbnail-img" [src]="deal.dealItems[0].imagePath" alt="...">
+        <span *ngIf="deal.status === 'ACTIVE'" class="deal-date">{{ getDate(deal.startTime) }} - {{ getDate(deal.endTime) }}</span>
+        <span *ngIf="deal.status === 'INACTIVE'" class="deal-end">已截团</span>
+        <img class="avatar" [src]="deal.owner.profileImage || 'assets/default_profile.svg'" alt="" />
+      </div>
+      <div class="caption">
+        <p>{{ deal.title }}</p>
+      </div>
+      <div class="thumbnail-bottom">
+        <span class="thumbnail-bottom-info"><i class="fa fa-eye"></i> {{ deal.viewCount }}</span>
+        <span class="thumbnail-bottom-info"><i class="fa fa-thumbs-up"></i> {{ deal.likesCount }}</span>
+        <span class="thumbnail-bottom-info"><i class="fa fa-shopping-cart"></i> {{ deal.orderCount }}</span>
+      </div>
     </div>
   </div>
-</div>
+</a>
