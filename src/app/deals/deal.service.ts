@@ -42,8 +42,8 @@ export class DealService {
     })
       .map(
         (response: Response) => {
-          console.log("response: ", response.json()[1]);
-          const deals: Deal[] = response.json()[1];
+          console.log("response: ", response.json());
+          const deals: Deal[] = response.json()['content'];
           console.log("Got deals: ", deals);
           return deals;
         }

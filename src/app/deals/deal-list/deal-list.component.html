@@ -1,3 +1,8 @@
 <div class="clearfix">
-  <app-deal *ngFor='let deal of [1,2,3,4,5,6,7,8,9,10]'></app-deal>
+  <app-deal 
+    *ngFor="let dealElm of deals; let i = index"
+    [deal]="dealElm"
+    [index]="i"
+  >
+  </app-deal>
 </div>

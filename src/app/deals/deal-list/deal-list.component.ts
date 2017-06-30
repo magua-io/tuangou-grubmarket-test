@@ -20,10 +20,10 @@ export class DealListComponent implements OnInit {
     this.subscription = this.dealService.dealsChanged.subscribe(
       (deals: Deal[]) => {
         this.deals = deals;
+        console.log("Succesffuly got deals: ", this.deals);
       }
     );
     this.dealService.fetchDeals();
-    console.log("Succesffuly got deals: ", this.deals);
   }
 
   ngOnDestroy() {
