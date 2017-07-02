@@ -14,9 +14,14 @@ export class DealComponent implements OnInit {
   @Input() deal: Deal;
   @Input() index: number;
 
+  avatarPath: string;
+  imagePath: string;
+
   constructor(private timeService: TimeService) { }
 
   ngOnInit() {
+    this.avatarPath = this.deal.owner.profileImage || 'assets/default_profile.svg';
+    this.imagePath = this.deal.dealItems[0].imagePath
   }
 
   getDate(timestamp: number) {

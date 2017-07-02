@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { LazyLoadImageModule } from 'ng-lazyload-image';
+
 import { DealsRoutingModule } from './deals-routing.module';
 
 import { DealsComponent } from './deals.component';
@@ -24,7 +26,8 @@ import { DropdownDirective } from '../shared/dropdown.directive';
   ],
   imports: [
     CommonModule,
-    DealsRoutingModule
+    DealsRoutingModule,
+    LazyLoadImageModule
   ],
   providers: [],
   exports: []

@@ -30,7 +30,7 @@ import { FooterComponent } from './footer/footer.component';
     HttpModule,
     JsonpModule,
     AppRoutingModule,
-    DealsModule
+    DealsModule,
   ],
   providers: [ DealService, requestOptionsProvider, TimeService ],
   bootstrap: [AppComponent]
