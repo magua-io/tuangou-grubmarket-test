@@ -1,0 +1,11 @@
+.load-more-button {
+  background-color: rgba(73,189,153,.8);
+  border: none;
+  outline: none;
+}
+
+.load-more-button:focus {
+  background-color: rgba(22,145,78,.8);
+  border: none;
+  outline: none;
+}

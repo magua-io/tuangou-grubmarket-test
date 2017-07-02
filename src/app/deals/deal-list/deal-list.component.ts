@@ -16,6 +16,8 @@ export class DealListComponent implements OnInit {
   deals: Deal[];
   subscription: Subscription;
 
+  page: number = 0;
+
   constructor(private dealService: DealService) { }
 
   ngOnInit() {
@@ -30,6 +32,11 @@ export class DealListComponent implements OnInit {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  onLoadMore() {
+    this.page += 1;
+    this.dealService.fetchMoreDeals(this.page);
   }
 
 }

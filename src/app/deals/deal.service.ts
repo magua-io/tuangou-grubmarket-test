@@ -35,6 +35,11 @@ export class DealService {
     this.dealsChanged.next(this.deals.slice());
   }
 
+  addDeals(deals: Deal[]) {
+    this.deals.push(...deals);
+    this.dealsChanged.next(this.deals.slice());
+  }
+
   fetchDeals() {
 
     this.http.get('https://tuangou.grubmarket.com/api/deals', {
@@ -80,6 +85,32 @@ export class DealService {
         }
       ); 
   }
+
+  fetchMoreDeals(page:number) {
+
+    this.http.get('https://tuangou.grubmarket.com/api/deals?page=' + page, {
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer c2669247-877e-4eac-aaba-d8de5569af7d',
+        'Accept-Language': 'zh-CN'
+      })
+    })
+      .map(
+        (response: Response) => {
+          console.log("response: ", response.json());
+          const deals: Deal[] = response.json()['content'];
+          console.log("Got deals: ", deals);
+          return deals;
+        }
+      )
+      .subscribe(
+        (deals: Deal[]) => {
+          this.addDeals(deals);
+        }
+      );
+  }
+
+  
 
   private handleServerError(error: Response) {
     return Observable.throw(error.json().error || 'Server error');
