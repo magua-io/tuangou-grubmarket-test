@@ -1,13 +1,46 @@
-<div class="container" *ngIf="deal">
-  <div class="row clearfix">
-    <div class="col-xs-12 col-md-8 col-md-offset-2 thumbnail">
-       <p class="deal-title">{{ deal.title }}</p>
-    </div>
-
-    <div class="col-xs-12 col-md-8 col-md-offset-2 thumbnail">
-       <b>本单详情</b><br><br>
-       <div [innerHTML]="deal.description"></div>
-       <i class="fa fa-bell"></i> Grubmarket为第三方提供交易服务平台, 除官方团购外, 无法鑑别判断第三方交易方物品来与纷争。敬请交易双方事前辨明。如果出现第三方物品纠纷，如交易一方违反法律规定而出现纠纷与及不良结果，由交易行爲人独立承担所有责任，【Grubmarket】概不负责也不承担任何法律责任。
+<div class="container-fluid" *ngIf="deal">
+  
+  <div class="clearfix check-out ">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <button class="check-out-button btn btn-primary btn-block"><i class="fa fa-shopping-cart"></i> 结算</button>
     </div>
   </div>
+  
+
+  <div class="row clearfix">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 thumbnail">
+      <img class="gm-official" src="assets/gm-official.svg" *ngIf="deal.official"/>
+      <p class="deal-title">{{ deal.title }}</p>
+      <div *ngIf="deal.status === 'ACTIVE'">
+        <p class="deal-attention">离截团还有：</p>
+        <p class="deal-countdown">{{ onGetTime() }}</p>
+      </div>
+
+      <p class="deal-attention" *ngIf="deal.status === 'INACTIVE'">【已截团】</p>
+       
+      <div class="deal-bottom-info">
+        <div class="pull-right">
+          <img class="avatar" [src]="deal.owner.profileImage" />
+          
+          <a class="display-name">{{ deal.owner.displayName }}</a>
+          
+          <span><i class="fa fa-eye"></i> {{ deal.viewCount }}</span>  
+          <span><i class="fa fa-thumbs-up"></i>  {{ deal.likesCount  }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row clearfix">
+    <div class="deal-detail col-xs-12 col-md-8 col-md-offset-2 thumbnail">
+       <b>本单详情</b><br><br>
+       <div class="deal-description" [innerHTML]="deal.description"></div>
+       <div class="alert alert-warning" role="alert">
+        <i class="fa fa-bell"></i> Grubmarket为第三方提供交易服务平台, 除官方团购外, 无法鑑别判断第三方交易方物品来与纷争。敬请交易双方事前辨明。如果出现第三方物品纠纷，如交易一方违反法律规定而出现纠纷与及不良结果，由交易行爲人独立承担所有责任，【Grubmarket】概不负责也不承担任何法律责任。
+       </div>
+    </div>
+  </div>
+
+
+  
 </div>

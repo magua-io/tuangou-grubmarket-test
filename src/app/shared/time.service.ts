@@ -7,4 +7,8 @@ export class TimeService {
     return date;
   }
 
+  timestampToCountdown(timestamp: number): string {
+    return moment.unix(timestamp / 1000).format("D [天] HH [时] mm [分] ss [秒]");
+  }
+
 }
