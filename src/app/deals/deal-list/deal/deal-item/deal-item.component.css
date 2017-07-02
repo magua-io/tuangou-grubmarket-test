@@ -1,0 +1,74 @@
+.deal-item-info-container {
+  display: flex;
+}
+
+.deal-item-price {
+  color: red;
+  font-weight: bold;
+}
+
+.deal-item-image {
+  width: 80px;
+  min-width: 80px;
+  height: 80px;
+  min-height: 80px;
+  object-fit: cover;
+}
+
+.deal-item-info {
+  margin: 0 20px;
+}
+
+.deal-item {
+  border-bottom: 1px solid lightgray;
+  padding: 10px 0;
+}
+
+.deal-item-info-bottom-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.deal-item-detail-button {
+  border: none;
+  background-color: transparent;
+  color: #37a96c;
+  margin: 10px 0;
+}
+
+.deal-item-detail-button:hover {
+  background-color: #37a96c;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.deal-item-shopping-amount {
+  width: 134px;
+}
+
+.deal-item-shopping-amount-container {
+  height: 34px;
+  border: 1px solid lightgray;
+  padding: 0;
+  display: inline-block;
+  
+}
+
+.shopping-amount {
+  text-align: center;
+  background-color: #fff;
+}
+
+.shopping-button {
+  background-color: lightgray;
+}
+
+.shopping-button:focus {
+  outline: none;
+}
+
+.shopping-button:hover {
+  background-color: #37a96c;
+  border-color: #37a96c;
+}

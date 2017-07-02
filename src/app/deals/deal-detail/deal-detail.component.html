@@ -32,6 +32,16 @@
   </div>
 
   <div class="row clearfix">
+      <div class="col-xs-12 col-md-8 col-md-offset-2 thumbnail">
+        <app-deal-item
+          *ngFor="let dealItemElm of deal.dealItems"  
+          [dealItem]="dealItemElm"
+        >
+        </app-deal-item>
+      </div>
+  </div>
+
+  <div class="row clearfix">
     <div class="deal-detail col-xs-12 col-md-8 col-md-offset-2 thumbnail">
        <b>本单详情</b><br><br>
        <div class="deal-description" [innerHTML]="deal.description"></div>

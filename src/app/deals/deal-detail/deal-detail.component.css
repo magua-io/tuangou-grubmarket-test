@@ -7,6 +7,7 @@
 .deal-title {
   color: gray;
   font-size: 15px;
+  text-align: center;
 }
 
 :host /deep/ img {

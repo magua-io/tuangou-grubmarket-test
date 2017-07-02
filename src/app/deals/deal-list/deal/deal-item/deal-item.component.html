@@ -1,0 +1,37 @@
+<div class="deal-item">
+  <div class="deal-item-info-container">
+    <div class="deal-item-image">
+      <img [src]="dealItem.thumbnailPath">
+    </div>
+    <div class="deal-item-info">
+      <p>{{ dealItem.title }}</p>
+      <p>团购价: <span class="deal-item-price">${{ dealItem.unitPrice }} ({{ dealItem.unitPlural }})</span> / 已售: {{ dealItem.sold || 0 }} <span *ngIf="dealItem.available">剩余: {{ dealItem.available }}</span>
+    </div>
+  </div>
+  <div class="deal-item-info-bottom-container">
+    <button class="deal-item-detail-button">详情</button>
+    <div class="deal-item-shopping-amount">
+      <div class="input-group">
+        <span class="input-group-btn">
+          <button 
+            class="btn btn-default shopping-button" 
+            type="button"
+            (click)="onMinus()"
+          >
+            <i class="fa fa-minus"></i>
+          </button>
+        </span>
+        <input type="text" class="form-control shopping-amount" aria-label="Amount (to the nearest dollar)" [value]="amount" disabled>
+        <span class="input-group-btn">
+          <button 
+            class="btn btn-default shopping-button" 
+            type="button"
+            (click)="onAdd()"
+          >
+            <i class="fa fa-plus"></i>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
