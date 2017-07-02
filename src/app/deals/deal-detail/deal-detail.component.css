@@ -81,6 +81,12 @@
   z-index: 1024;
 }
 
+@media (max-width: 767px) {
+  .check-out {
+    bottom: 60px;
+  }
+}
+
 .check-out-button {
   background-color: #2b985e;
   border: none;
@@ -100,3 +106,6 @@
   width: 250px;
   margin-bottom: 20px;
 }
+
+
+

@@ -1,0 +1,32 @@
+.footer-mobile {
+    z-index: 9999;
+    position: fixed;
+    bottom: -1px;
+    width: 100%;
+}
+
+.footer-menus .footer-menu:hover {
+    background-color: #37a96c;
+    color: #fff;
+}
+
+.footer-menus .footer-menu {
+    height: 50px;
+    color: #37a96c;
+    font-size: 1.4em;
+    line-height: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-menus {
+    background-color: rgba(58,173,112,.8);
+    margin: 0;
+    cursor: pointer;
+    color: #FFF;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}

@@ -66,6 +66,7 @@
 
 .shopping-button:focus {
   outline: none;
+  border-color: lightgray;
 }
 
 .shopping-button:hover {

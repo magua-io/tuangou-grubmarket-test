@@ -14,6 +14,7 @@ import { requestOptionsProvider } from './shared/http-client.service';
 import { TimeService } from './shared/time.service';
 import { BlogsComponent } from './blogs/blogs.component';
 import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     HeaderComponent,
     BlogsComponent,
-    HomeComponent
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
