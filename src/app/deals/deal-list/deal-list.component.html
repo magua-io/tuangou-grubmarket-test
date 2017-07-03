@@ -1,5 +1,5 @@
 <app-filter></app-filter>
-<div class="clearfix deal-list">
+<div class="clearfix deal-list" #dealList>
   <app-deal 
     *ngFor="let dealElm of deals; let i = index"
     [deal]="dealElm"

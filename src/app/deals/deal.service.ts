@@ -22,6 +22,8 @@ export class DealService {
 
   page: number = 0;
 
+  isFetching: boolean = false;
+
   constructor(private jsonp: Jsonp, private http: Http) {}
 
   getDeals() {
@@ -35,11 +37,13 @@ export class DealService {
   setDeals(deals: Deal[]) {
     this.deals = deals;
     this.dealsChanged.next(this.deals.slice());
+    this.isFetching = false;
   }
 
   addDeals(deals: Deal[]) {
     this.deals.push(...deals);
     this.dealsChanged.next(this.deals.slice());
+    this.isFetching = false;
   }
 
   fetchDeals() {
@@ -90,6 +94,7 @@ export class DealService {
 
   fetchMoreDeals() {
     this.page += 1;
+    this.isFetching = true;
     this.http.get('https://tuangou.grubmarket.com/api/deals?page=' + this.page, {
       headers: new Headers({
         'Content-Type': 'application/json',

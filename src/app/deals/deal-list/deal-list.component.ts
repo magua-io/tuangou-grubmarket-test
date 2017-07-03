@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewChecked, ViewChild, HostListener, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewChecked, ViewChild, HostListener, Inject, ElementRef } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -12,6 +12,8 @@ import { DealService } from '../deal.service';
   styleUrls: ['./deal-list.component.css']
 })
 export class DealListComponent implements OnInit {
+
+  @ViewChild('dealList') private dealList: ElementRef;
 
   deals: Deal[];
   subscription: Subscription;
@@ -33,7 +35,7 @@ export class DealListComponent implements OnInit {
     if (this.deals && this.deals.length != 0) {
       console.log("deal-list deals.length: ", this.deals.length);
     } else {
-      console.log("deal is null");
+      console.log("deal is null");  
       this.dealService.fetchDeals();
     }
   }
@@ -44,6 +46,15 @@ export class DealListComponent implements OnInit {
 
   onLoadMore() {
     this.dealService.fetchMoreDeals();
+  }
+
+  @HostListener("window:scroll", ["$event"])
+  onWindowScroll() {
+    let pos = document.body.scrollTop;
+    let max = this.dealList.nativeElement.scrollHeight;
+    if (max - pos < 1000 && !this.dealService.isFetching) {
+      this.dealService.fetchMoreDeals();
+    }
   }
 
 }
