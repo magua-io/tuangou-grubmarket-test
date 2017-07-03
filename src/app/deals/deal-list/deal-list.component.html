@@ -4,6 +4,8 @@
     *ngFor="let dealElm of deals; let i = index"
     [deal]="dealElm"
     [index]="i"
+    [id]="dealElm.id"
+    scrollTracker
   >
   </app-deal>
 </div>

@@ -13,6 +13,7 @@ export class DealComponent implements OnInit {
 
   @Input() deal: Deal;
   @Input() index: number;
+  @Input() id: string;
 
   avatarPath: string;
   imagePath: string;

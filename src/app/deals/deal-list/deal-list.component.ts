@@ -21,13 +21,21 @@ export class DealListComponent implements OnInit {
   constructor(private dealService: DealService) { }
 
   ngOnInit() {
+    this.deals = this.dealService.getDeals();
+
     this.subscription = this.dealService.dealsChanged.subscribe(
       (deals: Deal[]) => {
         this.deals = deals;
         console.log("Succesffuly got deals: ", this.deals);
       }
     );
-    this.dealService.fetchDeals();
+
+    if (this.deals && this.deals.length != 0) {
+      console.log("deal-list deals.length: ", this.deals.length);
+    } else {
+      console.log("deal is null");
+      this.dealService.fetchDeals();
+    }
   }
 
   ngOnDestroy() {
@@ -35,8 +43,7 @@ export class DealListComponent implements OnInit {
   }
 
   onLoadMore() {
-    this.page += 1;
-    this.dealService.fetchMoreDeals(this.page);
+    this.dealService.fetchMoreDeals();
   }
 
 }

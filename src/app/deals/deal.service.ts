@@ -20,6 +20,8 @@ export class DealService {
 
   fetchedDeal: Deal;
 
+  page: number = 0;
+
   constructor(private jsonp: Jsonp, private http: Http) {}
 
   getDeals() {
@@ -86,9 +88,9 @@ export class DealService {
       ); 
   }
 
-  fetchMoreDeals(page:number) {
-
-    this.http.get('https://tuangou.grubmarket.com/api/deals?page=' + page, {
+  fetchMoreDeals() {
+    this.page += 1;
+    this.http.get('https://tuangou.grubmarket.com/api/deals?page=' + this.page, {
       headers: new Headers({
         'Content-Type': 'application/json',
         'Authorization': 'Bearer c2669247-877e-4eac-aaba-d8de5569af7d',
