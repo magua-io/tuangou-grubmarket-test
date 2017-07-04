@@ -20,7 +20,7 @@ export class DealDetailComponent implements OnInit {
   timeleft: number;
   deal: Deal;
   id: string;
-  isAddressExpand: boolean = true;
+  isAddressExpand: boolean = false;
 
   constructor(
     private dealService: DealService,
