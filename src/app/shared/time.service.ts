@@ -7,6 +7,16 @@ export class TimeService {
     return date;
   }
 
+  timestampToMonth(timestamp: number): string {
+    let month = moment.unix(timestamp / 1000).format("MMM");
+    return month;
+  }
+
+  timestampToDay(timestamp: number): string {
+    let day = moment.unix(timestamp / 1000).format("DD");
+    return day;
+  }
+
   timestampToCountdown(timestamp: number): string {
     //return moment.unix(timestamp / 1000).format("D [天] HH [时] mm [分] ss [秒]");
     return moment.unix(timestamp / 1000 - 60 * 60 * 24 * 31 - 60 * 60 * 19).format('D [天] HH [时] mm [分] ss [秒]')

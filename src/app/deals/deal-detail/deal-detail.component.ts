@@ -58,7 +58,19 @@ export class DealDetailComponent implements OnInit {
     let minutes = this.timeService.millsecondsToMinute(timeleft);
     let seconds = this.timeService.millsecondsToSecond(timeleft);
 
-    return days + " 天 " + hours + " 时 " + minutes + " 分 " + seconds + " 秒";
+    return this.formatNumber(days) + " 天 " + this.formatNumber(hours) + " 时 " + this.formatNumber(minutes) + " 分 " + this.formatNumber(seconds) + " 秒";
+  }
+
+  getPickupMonth() {
+    return this.timeService.timestampToMonth(this.deal.pickupTime);
+  }
+
+  getPickupDay() {
+    return this.timeService.timestampToDay(this.deal.pickupTime);
+  }
+
+  formatNumber(num: number) {
+    return num < 10 ? "0" + num : num;
   }
 
 }
