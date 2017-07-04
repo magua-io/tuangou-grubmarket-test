@@ -11,7 +11,7 @@ import { DealListComponent } from './deal-list/deal-list.component';
 import { DealComponent } from './deal-list/deal/deal.component';
 import { DealItemComponent } from './deal-list/deal/deal-item/deal-item.component';
 import { DealDetailComponent } from './deal-detail/deal-detail.component';
-import { FilterComponent } from '../filter/filter.component';
+import { FilterComponent } from './filter/filter.component';
 import { DealItemImageModal } from './deal-list/deal/deal-item/deal-item-image-modal.component';
 import { DealItemDescriptionModal } from './deal-list/deal/deal-item/deal-item-description-modal.component';
 

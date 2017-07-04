@@ -24,6 +24,12 @@ export class DealService {
 
   isFetching: boolean = false;
 
+  showOnlyOfficial: boolean = false;
+
+  showOnlyActive: boolean = false;
+
+  noMoreDeals: boolean = false;
+
   constructor(private jsonp: Jsonp, private http: Http) {}
 
   getDeals() {
@@ -48,7 +54,11 @@ export class DealService {
 
   fetchDeals() {
 
-    this.http.get('https://tuangou.grubmarket.com/api/deals', {
+    // reset page and noMoreDeals
+    this.page = 0;
+    this.noMoreDeals = false;
+
+    this.http.get('https://tuangou.grubmarket.com/api/deals?' + 'official=' + this.showOnlyOfficial +  '&active=' + this.showOnlyActive, {
       headers: new Headers({
         'Content-Type': 'application/json',
         'Authorization': 'Bearer c2669247-877e-4eac-aaba-d8de5569af7d',
@@ -95,7 +105,8 @@ export class DealService {
   fetchMoreDeals() {
     this.page += 1;
     this.isFetching = true;
-    this.http.get('https://tuangou.grubmarket.com/api/deals?page=' + this.page, {
+    console.log("page: ", this.page);
+    this.http.get('https://tuangou.grubmarket.com/api/deals?' + 'official=' + this.showOnlyOfficial +  '&active=' + this.showOnlyActive + '&page=' + this.page, {
       headers: new Headers({
         'Content-Type': 'application/json',
         'Authorization': 'Bearer c2669247-877e-4eac-aaba-d8de5569af7d',
@@ -107,6 +118,10 @@ export class DealService {
           console.log("response: ", response.json());
           const deals: Deal[] = response.json()['content'];
           console.log("Got deals: ", deals);
+          if (deals.length == 0) {
+            console.log("No more deals");
+            this.noMoreDeals = true;
+          }
           return deals;
         }
       )
@@ -123,6 +138,13 @@ export class DealService {
     return Observable.throw(error.json().error || 'Server error');
   }
 
+  toggleShowOnlyOfficial() {
+    this.showOnlyOfficial = !this.showOnlyOfficial;
+  }
+
+  toggleShowOnlyActive() {
+    this.showOnlyActive = !this.showOnlyActive;
+  }
 
 
 }

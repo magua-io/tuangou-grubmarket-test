@@ -20,6 +20,9 @@ export class DealListComponent implements OnInit {
 
   page: number = 0;
 
+  showOnlyOfficial: boolean = false;
+  showOnlyActive: boolean = false;
+
   constructor(private dealService: DealService) { }
 
   ngOnInit() {
@@ -48,7 +51,7 @@ export class DealListComponent implements OnInit {
   onWindowScroll() {
     let pos = document.body.scrollTop;
     let max = this.dealList.nativeElement.scrollHeight;
-    if (max - pos < 1000 && !this.dealService.isFetching) {
+    if (max - pos < 1000 && !this.dealService.isFetching && !this.dealService.noMoreDeals) {
       this.dealService.fetchMoreDeals();
     }
   }
