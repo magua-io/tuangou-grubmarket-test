@@ -1,7 +1,7 @@
 <div class="deal-item">
   <div class="deal-item-info-container">
     <div class="deal-item-image">
-      <img [lazyLoad]="dealItem.thumbnailPath">
+      <img [lazyLoad]="dealItem.thumbnailPath" (click)="onOpenImageModal()">
     </div>
     <div class="deal-item-info">
       <p>{{ dealItem.title }}</p>

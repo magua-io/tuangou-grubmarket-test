@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MdDialogModule } from '@angular/material';
 
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 
@@ -11,6 +12,7 @@ import { DealComponent } from './deal-list/deal/deal.component';
 import { DealItemComponent } from './deal-list/deal/deal-item/deal-item.component';
 import { DealDetailComponent } from './deal-detail/deal-detail.component';
 import { FilterComponent } from '../filter/filter.component';
+import { DealItemImageModal } from './deal-list/deal/deal-item/deal-item-image-modal.component';
 
 import { DropdownDirective } from '../shared/dropdown.directive';
 
@@ -22,13 +24,16 @@ import { DropdownDirective } from '../shared/dropdown.directive';
     DealItemComponent,
     DealDetailComponent,
     FilterComponent,
-    DropdownDirective
+    DropdownDirective,
+    DealItemImageModal
   ],
   imports: [
     CommonModule,
     DealsRoutingModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
+    MdDialogModule
   ],
+  entryComponents: [ DealItemImageModal ],
   providers: [],
   exports: []
 })

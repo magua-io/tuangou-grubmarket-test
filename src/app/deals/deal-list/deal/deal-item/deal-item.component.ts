@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {MdDialog} from '@angular/material';
 
 import { DealItem } from '../../../deal-item.model';
+
+import { DealItemImageModal } from './deal-item-image-modal.component';
 
 @Component({
   selector: 'app-deal-item',
@@ -13,7 +16,7 @@ export class DealItemComponent implements OnInit {
   
   amount:number = 0;
 
-  constructor() { }
+  constructor(public dialog: MdDialog) { }
 
   ngOnInit() {
   }
@@ -35,6 +38,16 @@ export class DealItemComponent implements OnInit {
     if (this.amount > 0) {
       this.amount -= 1;
     }
+  }
+
+  onOpenImageModal() {
+    this.dialog.open(DealItemImageModal, {
+      data: {
+        title: this.dealItem.title,
+        imagePath: this.dealItem.imagePath,
+      }
+        
+    });
   }
 
 }

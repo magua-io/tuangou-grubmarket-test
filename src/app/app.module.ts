@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule, JsonpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DealsModule } from './deals/deals.module';
 
@@ -31,6 +32,7 @@ import { FooterComponent } from './footer/footer.component';
     JsonpModule,
     AppRoutingModule,
     DealsModule,
+    BrowserAnimationsModule
   ],
   providers: [ DealService, requestOptionsProvider, TimeService ],
   bootstrap: [AppComponent]

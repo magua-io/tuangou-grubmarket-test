@@ -13,6 +13,7 @@ export class DealItem {
     public itemOrder: number,
     public maxAvailable: number,
     public sold: number,
+    public title: string,
     public thumbnailPath: string,
     public unitPlural: string,
     public unitPrice: number
@@ -28,6 +29,7 @@ export class DealItem {
     this.itemOrder = itemOrder;
     this.maxAvailable = maxAvailable;
     this.sold = sold;
+    this.title = title;
     this.thumbnailPath = thumbnailPath;
     this.unitPlural = unitPlural;
     this.unitPrice = unitPrice;
