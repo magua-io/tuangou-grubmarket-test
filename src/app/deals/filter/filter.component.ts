@@ -9,8 +9,8 @@ import { DealService } from '../deal.service';
 })
 export class FilterComponent implements OnInit {
 
-  onlyOfficialTuangou = false;
-  onlyActiveTuangou = false;
+  onlyOfficialTuangou: boolean;
+  onlyActiveTuangou: boolean;
 
   constructor(private dealService: DealService) { }
 
@@ -38,8 +38,9 @@ export class FilterComponent implements OnInit {
     return num1 + num2;
   }
 
-  onApplyFilters() {
+  onApplyFilters(event) {
     console.log("Applied filters");
+    event.stopPropagation();
     this.dealService.fetchDeals();
   }
 
