@@ -13,6 +13,7 @@ import { DealItemComponent } from './deal-list/deal/deal-item/deal-item.componen
 import { DealDetailComponent } from './deal-detail/deal-detail.component';
 import { FilterComponent } from '../filter/filter.component';
 import { DealItemImageModal } from './deal-list/deal/deal-item/deal-item-image-modal.component';
+import { DealItemDescriptionModal } from './deal-list/deal/deal-item/deal-item-description-modal.component';
 
 import { DropdownDirective } from '../shared/dropdown.directive';
 
@@ -25,7 +26,8 @@ import { DropdownDirective } from '../shared/dropdown.directive';
     DealDetailComponent,
     FilterComponent,
     DropdownDirective,
-    DealItemImageModal
+    DealItemImageModal,
+    DealItemDescriptionModal
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,10 @@ import { DropdownDirective } from '../shared/dropdown.directive';
     LazyLoadImageModule,
     MdDialogModule
   ],
-  entryComponents: [ DealItemImageModal ],
+  entryComponents: [ 
+    DealItemImageModal,
+    DealItemDescriptionModal
+  ],
   providers: [],
   exports: []
 })

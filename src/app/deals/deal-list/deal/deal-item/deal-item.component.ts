@@ -4,6 +4,7 @@ import {MdDialog} from '@angular/material';
 import { DealItem } from '../../../deal-item.model';
 
 import { DealItemImageModal } from './deal-item-image-modal.component';
+import { DealItemDescriptionModal } from './deal-item-description-modal.component';
 
 @Component({
   selector: 'app-deal-item',
@@ -46,7 +47,15 @@ export class DealItemComponent implements OnInit {
         title: this.dealItem.title,
         imagePath: this.dealItem.imagePath,
       }
-        
+    });
+  }
+
+  onOpenDescriptionModal() {
+    this.dialog.open(DealItemDescriptionModal, {
+      data: {
+        title: this.dealItem.title,
+        description: this.dealItem.description
+      }
     });
   }
 

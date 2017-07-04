@@ -9,7 +9,13 @@
     </div>
   </div>
   <div class="deal-item-info-bottom-container">
-    <button class="deal-item-detail-button">详情</button>
+    <button 
+      class="deal-item-detail-button" 
+      *ngIf="dealItem.description != ''"
+      (click)="onOpenDescriptionModal()"
+    >
+      详情
+    </button>
     <div class="deal-item-shopping-amount">
       <div class="input-group">
         <span class="input-group-btn">
