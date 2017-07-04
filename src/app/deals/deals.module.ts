@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MdDialogModule } from '@angular/material';
+import { MdDialogModule, MdProgressSpinnerModule } from '@angular/material';
 
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 
@@ -33,7 +33,8 @@ import { DropdownDirective } from '../shared/dropdown.directive';
     CommonModule,
     DealsRoutingModule,
     LazyLoadImageModule,
-    MdDialogModule
+    MdDialogModule,
+    MdProgressSpinnerModule
   ],
   entryComponents: [ 
     DealItemImageModal,

@@ -1,12 +1,19 @@
-<app-filter></app-filter>
-<div class="clearfix deal-list" #dealList>
-  <app-deal 
-    *ngFor="let dealElm of deals; let i = index"
-    [deal]="dealElm"
-    [index]="i"
-    [id]="dealElm.id"
-    scrollTracker
-  >
-  </app-deal>
+<div class="spinner" *ngIf="deals.length <= 0">
+  <md-spinner></md-spinner>
 </div>
-<button type="button" class="load-more-button btn btn-primary btn-block" (click)="onLoadMore()">Load More...</button>
+<div *ngIf="deals.length > 0">
+  <app-filter></app-filter>
+  <div class="clearfix deal-list" #dealList>
+    <app-deal 
+      *ngFor="let dealElm of deals; let i = index"
+      [deal]="dealElm"
+      [index]="i"
+      [id]="dealElm.id"
+      scrollTracker
+    >
+    </app-deal>
+  </div>
+  <div class="spinner" *ngIf="dealService.isFetching">
+    <md-spinner></md-spinner>
+  </div>
+</div>
