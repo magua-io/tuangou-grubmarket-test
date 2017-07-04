@@ -30,3 +30,18 @@ a {
   color: #fff;
   text-decoration: none;
 }
+
+footer.hidden-xs {
+  background-color: rgba(65,64,66,.8);
+  padding: 10px 0;
+}
+
+p {
+  margin: 0;
+  color: #fff;
+  display: inline-block;
+}
+
+p.right {
+  float: right;
+}
