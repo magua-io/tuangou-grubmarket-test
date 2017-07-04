@@ -44,10 +44,6 @@ export class DealListComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 
-  onLoadMore() {
-    this.dealService.fetchMoreDeals();
-  }
-
   @HostListener("window:scroll", ["$event"])
   onWindowScroll() {
     let pos = document.body.scrollTop;
