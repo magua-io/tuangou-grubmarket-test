@@ -33,6 +33,23 @@
 
   <div class="row clearfix">
       <div class="col-xs-12 col-md-8 col-md-offset-2 thumbnail">
+
+        <div class="pickup-info">
+          <div class="pickup-time">
+            <label for="">提货时期:</label>
+            <span class="pickup-time-month">Jul</span>
+            <span class="pickup-time-day">21</span>
+          </div>
+          <div class="pickup-location">
+            <label for="">提货地址:</label>
+            <ul class="pickup-location-list">
+              <li *ngFor="let location of deal.dealPickupLocations">
+                <i class="fa fa-star"></i> {{ location.description }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
         <app-deal-item
           *ngFor="let dealItemElm of deal.dealItems"  
           [dealItem]="dealItemElm"

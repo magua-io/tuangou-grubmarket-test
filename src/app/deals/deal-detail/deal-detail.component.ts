@@ -52,7 +52,13 @@ export class DealDetailComponent implements OnInit {
   }
 
   onGetTime() {
-    return this.timeService.timestampToCountdown(this.deal.endTime - Date.now() - 1000 * 60 * 60 * 19);
+    let timeleft = this.deal.endTime - Date.now();
+    let days = this.timeService.millsecondsToDay(timeleft);
+    let hours = this.timeService.millsecondsToHour(timeleft);
+    let minutes = this.timeService.millsecondsToMinute(timeleft);
+    let seconds = this.timeService.millsecondsToSecond(timeleft);
+
+    return days + " 天 " + hours + " 时 " + minutes + " 分 " + seconds + " 秒";
   }
 
 }

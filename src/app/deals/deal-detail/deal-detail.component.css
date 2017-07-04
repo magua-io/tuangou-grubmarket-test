@@ -61,6 +61,58 @@
   white-space: nowrap;
 }
 
+.pickup-info {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+  padding: 20px 0;
+}
+
+.pickup-time {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pickup-time-month {
+  background-color: #55c3be;
+  width: 70%;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+  color: #fff;
+  padding: 0;
+  font-size: 15px;
+}
+
+.pickup-time-day {
+  width: 70%;
+  font-size: 30px;
+  border-radius: 0 0 5px 5px;
+  color: #000;
+  box-shadow: 0 0 5px rgba(0,0,0,.1);
+  padding: 10px;
+  text-align: center;
+}
+
+.pickup-time > label, .pickup-location > label {
+  color: #777;
+}
+
+.pickup-location-list {
+  list-style-type: none;
+}
+
+ul {
+  padding: 0;
+}
+
+.fa.fa-star {
+  color: #777;
+}
+
+.pickup-location {
+  width: 80%;
+}
+
 .deal-bottom-info {
   display: flex;
   align-items: center;
