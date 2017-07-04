@@ -20,6 +20,7 @@ export class DealDetailComponent implements OnInit {
   timeleft: number;
   deal: Deal;
   id: string;
+  isAddressExpand: boolean = true;
 
   constructor(
     private dealService: DealService,
@@ -71,6 +72,11 @@ export class DealDetailComponent implements OnInit {
 
   formatNumber(num: number) {
     return num < 10 ? "0" + num : num;
+  }
+
+  toggleAddress() {
+    console.log(this.isAddressExpand);
+    this.isAddressExpand = !this.isAddressExpand;
   }
 
 }

@@ -42,19 +42,22 @@
           </div>
           <div class="pickup-location">
             <label for="">提货地址:</label>
-            <ul class="pickup-location-list">
+            <ul class="pickup-location-list" [ngClass]="{'expand': isAddressExpand}">
               <li *ngFor="let location of deal.dealPickupLocations">
                 <i class="fa fa-star"></i> {{ location.description }}
               </li>
             </ul>
+            <button (click)="toggleAddress()" class="toggle-address-button"><i class="fa fa-caret-right"></i> {{ isAddressExpand ? '隐藏提货点' : '显示提货点' }}</button>
+            
           </div>
         </div>
-
-        <app-deal-item
-          *ngFor="let dealItemElm of deal.dealItems"  
-          [dealItem]="dealItemElm"
-        >
-        </app-deal-item>
+        <div class="deal-item-container">
+          <app-deal-item
+            *ngFor="let dealItemElm of deal.dealItems"  
+            [dealItem]="dealItemElm"
+          >
+          </app-deal-item>
+        </div>
       </div>
   </div>
 

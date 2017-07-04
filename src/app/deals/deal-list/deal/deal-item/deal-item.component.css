@@ -26,6 +26,8 @@
 .deal-item {
   border-bottom: 1px solid lightgray;
   padding: 10px 0;
+
+  transition: all .3s ease-in-out;  
 }
 
 .deal-item-info-bottom-container {

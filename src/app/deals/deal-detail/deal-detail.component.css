@@ -99,6 +99,27 @@
 
 .pickup-location-list {
   list-style-type: none;
+  max-height: 40px;
+  overflow: hidden;
+  transition: all .3s ease-in-out;
+  margin: 0;
+}
+
+.pickup-location-list.expand {
+  height: auto;
+  max-height: 100%;
+  transition: all .3s ease-in-out;
+}
+
+.toggle-address-button {
+  color: #37a96c;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.deal-item-container {
+  transition: all 1s ease-in-out;
 }
 
 ul {
