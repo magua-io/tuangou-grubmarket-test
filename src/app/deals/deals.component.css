@@ -1,0 +1,16 @@
+@media (max-width: 767px) {
+  .container-fluid.clearfix {
+    padding: 0;
+  }
+}
+
+.container-fluid {
+  overflow: hidden;
+  margin: 20px;
+  margin-top: 80px;
+  padding: 0px;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+}

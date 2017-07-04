@@ -8,7 +8,7 @@
   
 
   <div class="row clearfix">
-    <div class="col-xs-12 col-md-8 col-md-offset-2 thumbnail">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 thumbnail">
       <img class="gm-official" src="assets/gm-official.svg" *ngIf="deal.official"/>
       <p class="deal-title">{{ deal.title }}</p>
       <div *ngIf="deal.status === 'ACTIVE'">
@@ -32,7 +32,7 @@
   </div>
 
   <div class="row clearfix">
-      <div class="col-xs-12 col-md-8 col-md-offset-2 thumbnail">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 thumbnail">
 
         <div class="pickup-info">
           <div class="pickup-time">
@@ -62,7 +62,7 @@
   </div>
 
   <div class="row clearfix">
-    <div class="deal-detail col-xs-12 col-md-8 col-md-offset-2 thumbnail">
+    <div class="deal-detail col-xs-12 col-sm-8 col-sm-offset-2 thumbnail">
        <b>本单详情</b><br><br>
        <div class="deal-description" [innerHTML]="deal.description"></div>
        <div class="alert alert-warning" role="alert">
