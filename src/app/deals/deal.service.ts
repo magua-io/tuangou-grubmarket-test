@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Http, Jsonp, Response, Headers, RequestOptions } from '@angular/http';
+import { Router } from '@angular/router';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
 import * as $ from 'jquery';
@@ -30,7 +31,7 @@ export class DealService {
 
   noMoreDeals: boolean = false;
 
-  constructor(private jsonp: Jsonp, private http: Http) {}
+  constructor(private jsonp: Jsonp, private http: Http, private router: Router) {}
 
   getDeals() {
     return this.deals.slice();
@@ -95,7 +96,15 @@ export class DealService {
           console.log("Got deals: ", deal);
           return deal;
         }
-      ).subscribe(
+      )
+      .catch(
+        (error: Response) => {
+          console.log("fetch deals error");
+          this.router.navigate(['/deals']);
+          return Observable.throw(error);
+        }
+      )
+      .subscribe(
         (deal: Deal) => {
           this.dealChanged.next(deal);
         }
