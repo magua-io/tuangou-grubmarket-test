@@ -52,7 +52,7 @@ export class DealDetailComponent implements OnInit {
   }
 
   onGetTime() {
-    return this.timeService.timestampToCountdown(this.deal.endTime - Date.now());
+    return this.timeService.timestampToCountdown(this.deal.endTime - Date.now() - 1000 * 60 * 60 * 19);
   }
 
 }
