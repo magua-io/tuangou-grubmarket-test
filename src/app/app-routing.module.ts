@@ -6,6 +6,7 @@ import { BlogsComponent } from './blogs/blogs.component';
 import { DealsComponent } from './deals/deals.component';
 
 const appRoutes: Routes = [
+  { path: '', redirectTo: 'deals', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
   { path: 'blogs', component: BlogsComponent },
   { path: 'deals', loadChildren: './deals/deals.module#DealsModule' }
