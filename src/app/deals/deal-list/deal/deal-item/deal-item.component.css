@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.deal-item-image {
+  cursor: pointer;
+}
+
 .deal-item-price {
   color: red;
   font-weight: bold;

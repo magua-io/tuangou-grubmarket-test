@@ -1,7 +1,7 @@
 <div class="deal-item">
   <div class="deal-item-info-container">
     <div class="deal-item-image">
-      <img [lazyLoad]="dealItem.thumbnailPath" (click)="onOpenImageModal()">
+      <img class="deal-item-image" [lazyLoad]="dealItem.thumbnailPath" (click)="onOpenImageModal()">
     </div>
     <div class="deal-item-info">
       <p>{{ dealItem.title }}</p>
@@ -11,7 +11,7 @@
   <div class="deal-item-info-bottom-container">
     <button 
       class="deal-item-detail-button" 
-      *ngIf="dealItem.description != ''"
+      *ngIf="dealItem.description && dealItem.description != ''"
       (click)="onOpenDescriptionModal()"
     >
       详情
