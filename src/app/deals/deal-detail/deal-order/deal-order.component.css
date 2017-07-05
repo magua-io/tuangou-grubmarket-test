@@ -1,0 +1,28 @@
+.order {
+  padding: 20px 0;
+  border-bottom: 1px solid lightgray;
+}
+
+.avatar {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.owner-info {
+  margin-bottom: 10px;
+}
+
+.orders-list {
+  list-style: none;
+}
+
+.purchase-date {
+  font-weight: normal;
+  float: right;
+  color: #afb2b4;
+}

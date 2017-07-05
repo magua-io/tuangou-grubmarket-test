@@ -18,6 +18,7 @@ import { DealItemDescriptionModal } from './deal-list/deal/deal-item/deal-item-d
 import { DropdownDirective } from '../shared/dropdown.directive';
 
 import { DealItemCategoryPipe } from './deal-detail/deal-item-category.pipe';
+import { DealOrderComponent } from './deal-detail/deal-order/deal-order.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DealItemCategoryPipe } from './deal-detail/deal-item-category.pipe';
     DropdownDirective,
     DealItemImageModal,
     DealItemDescriptionModal,
-    DealItemCategoryPipe
+    DealItemCategoryPipe,
+    DealOrderComponent
   ],
   imports: [
     CommonModule,

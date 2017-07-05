@@ -17,19 +17,29 @@ export class DealService {
 
   dealChanged = new Subject<Deal>();
 
+  ordersChanged = new Subject<any[]>();
+
   private deals: Deal[] = [];
 
   fetchedDeal: Deal;
 
   page: number = 0;
 
+  orderPage: number = 0;
+
   isFetching: boolean = false;
+
+  isOrderFetching: boolean = false;
 
   showOnlyOfficial: boolean = false;
 
   showOnlyActive: boolean = false;
 
   noMoreDeals: boolean = false;
+
+  noMoreOrders: boolean = false;
+
+  orders: any[] = [];
 
   constructor(private jsonp: Jsonp, private http: Http, private router: Router) {}
 
@@ -53,6 +63,12 @@ export class DealService {
     this.isFetching = false;
   }
 
+  setOrders(orders: any[]) {
+    this.orders = orders;
+    this.ordersChanged.next(this.orders.slice());
+    this.isOrderFetching = false;
+  }
+
   fetchDeals() {
 
     // reset page and noMoreDeals
@@ -66,19 +82,19 @@ export class DealService {
         'Accept-Language': 'zh-CN'
       })
     })
-      .map(
-        (response: Response) => {
-          console.log("response: ", response.json());
-          const deals: Deal[] = response.json()['content'];
-          console.log("Got deals: ", deals);
-          return deals;
-        }
-      )
-      .subscribe(
-        (deals: Deal[]) => {
-          this.setDeals(deals);
-        }
-      );
+    .map(
+      (response: Response) => {
+        console.log("response: ", response.json());
+        const deals: Deal[] = response.json()['content'];
+        console.log("Got deals: ", deals);
+        return deals;
+      }
+    )
+    .subscribe(
+      (deals: Deal[]) => {
+        this.setDeals(deals);
+      }
+    );
   }
 
   fetchDeal(id: string) {
@@ -139,6 +155,34 @@ export class DealService {
           this.addDeals(deals);
         }
       );
+  }
+
+  fetchOrderHistory(id: string) {
+
+    this.orderPage = 0;
+    this.noMoreOrders = false;
+    this.isOrderFetching = true;
+
+    this.http.get('https://tuangou.grubmarket.com/api/deals/' + id + '/orders?page=' + this.orderPage, {
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer c2669247-877e-4eac-aaba-d8de5569af7d',
+        'Accept-Language': 'zh-CN'
+      })
+    })
+    .map(
+      (response: Response) => {
+        console.log("response: ", response.json());
+        const orders: any[] = response.json()['content'];
+        console.log("Got orders: ", orders);
+        return orders;
+      }
+    )
+    .subscribe(
+      (orders: any[]) => {
+        this.setOrders(orders);
+      }
+    );
   }
 
   

@@ -1,0 +1,12 @@
+<div class="order">
+  <div class="owner-info">
+    <img class="avatar" [lazyLoad]="avatarPath">
+    <label>{{ order.owner.displayName }}</label>
+    <label class="purchase-date">{{ getTimeToNow(order.purchaseDate) }}</label>
+  </div>
+  <ul class="orders-list">
+    <li *ngFor="let item of order.orderItems">
+      {{ item.title }} x {{ item.quantity }}
+    </li>
+  </ul>
+</div>

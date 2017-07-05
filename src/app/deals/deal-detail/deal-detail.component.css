@@ -200,5 +200,16 @@ ul {
 .supplier-info > img {
   width: 100px;
   height: 100px;
+  min-width: 100px;
+  min-height: 100px;
   margin-right: 20px;
+}
+
+.deal-end-button {
+  margin-bottom: 20px;
+}
+
+.lastest-order {
+  color: #9a9a9a;
+  margin-bottom: 20px;
 }

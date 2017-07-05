@@ -17,6 +17,7 @@ import { Deal } from '../deal.model';
 export class DealDetailComponent implements OnInit {
 
   subscription: Subscription;
+  ordersSubscription: Subscription;
   timeleft: number;
   deal: Deal;
   id: string;
@@ -25,6 +26,8 @@ export class DealDetailComponent implements OnInit {
   categories: string[] = [];
 
   category: string;
+
+  orders: any[];
 
   constructor(
     private dealService: DealService,
@@ -54,10 +57,18 @@ export class DealDetailComponent implements OnInit {
       }
     );
 
+    this.ordersSubscription = this.dealService.ordersChanged.subscribe(
+      (orders: any[]) => {
+        this.orders = orders;
+        console.log("Succesffuly got orders: ", this.orders);
+      }
+    )
+
     this.route.params.subscribe(
       (params: Params) => {
         this.id = params['id'];
         this.dealService.fetchDeal(this.id);
+        this.dealService.fetchOrderHistory(this.id);
       }
     )
 
@@ -94,6 +105,10 @@ export class DealDetailComponent implements OnInit {
   onFilterChange(selectedCategory: string) {
     this.category = selectedCategory;
     console.log("Change category to ", selectedCategory);
+  }
+
+  getLastestOrderTimeFromNow(timestamp: number) {
+    return this.timeService.fromNow(timestamp);
   }
 
 }

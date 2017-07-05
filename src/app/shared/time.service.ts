@@ -38,4 +38,8 @@ export class TimeService {
     return Math.floor(timeleft / 1000 % 60);
   }
 
+  fromNow(timestamp: number) {
+    return moment.unix(timestamp / 1000).fromNow();
+  }
+
 }
