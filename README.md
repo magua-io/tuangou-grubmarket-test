@@ -33,6 +33,8 @@ The following **optional** features are implemented:
 - [X] Include view counts, likes counts, orders counts in deal
 - [X] Sticky "结算" button on the deal-detail view
 - [X] Able to hide and show more pickup locations
+- [X] Added order history of deal
+- [X] Implemented infinite loading on order history
 
 The following **Bonus** features are implemented:
 
