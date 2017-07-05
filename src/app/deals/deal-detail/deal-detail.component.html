@@ -4,7 +4,7 @@
 
 <div class="container-fluid" *ngIf="deal">
 
-  <div class="clearfix check-out ">
+  <div class="clearfix check-out " *ngIf="deal.status == 'ACTIVE'">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <button class="check-out-button btn btn-primary btn-block"><i class="fa fa-shopping-cart"></i> 结算</button>
     </div>
@@ -92,5 +92,16 @@
   </div>
 
 
-  
+  <div class="row clearfix" *ngIf="deal.official">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 thumbnail">
+      <h5 class="ng-binding">供应商介绍</h5>
+      <div class="cf">
+        <div class="supplier-info">
+          <img src="https://tuangou-prod.s3.amazonaws.com/suppliers/7339647a-2da5-11e6-8ed4-06b3104fd655/GrubMarket-logo.png">
+          <span>GrubMarket 提供的所有产品均经过严格筛选，并完成了公司供应商的审核流程。所有 GrubMarket 的供应商均相关证照齐全，品质绝对保障!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

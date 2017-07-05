@@ -192,4 +192,13 @@ ul {
   border-bottom: 1px solid lightgray;
 }
 
+.supplier-info {
+  padding: 0;
+  display: flex;
+}
 
+.supplier-info > img {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
