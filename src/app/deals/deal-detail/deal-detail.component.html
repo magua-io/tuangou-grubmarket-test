@@ -1,5 +1,9 @@
+<div class="top-spinner" *ngIf="!deal">
+  <md-spinner></md-spinner>
+</div>
+
 <div class="container-fluid" *ngIf="deal">
-  
+
   <div class="clearfix check-out ">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <button class="check-out-button btn btn-primary btn-block"><i class="fa fa-shopping-cart"></i> 结算</button>

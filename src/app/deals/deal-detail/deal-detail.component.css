@@ -1,3 +1,9 @@
+.top-spinner {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 800px;
+}
+
 .thumbnail {
   padding: 30px;
   border-radius: 5px;
