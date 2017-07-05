@@ -50,10 +50,10 @@ The following **Bonus** features are implemented:
 
 ## Screenshots
 
-![screenshot 1](./screenshots/screenshot1.png) { width: 200px; }
-![screenshot 2](./screenshots/screenshot2.png) { width: 200px; }
-![screenshot 3](./screenshots/screenshot3.png) { width: 200px; }
-![screenshot 4](./screenshots/screenshot4.png) { width: 200px; }
+<img src="./screenshots/screenshot1.png" width="200" height="200" />
+<img src="./screenshots/screenshot2.png" width="200" height="200" />
+<img src="./screenshots/screenshot3.png" width="200" height="200" />
+<img src="./screenshots/screenshot4.png" width="200" height="200" />
 
 ## License
 
