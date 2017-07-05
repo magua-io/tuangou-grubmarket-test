@@ -1,28 +1,53 @@
-# TuangouGrubmarketClone
+# Tuangou GrubMarket Clone
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+To run this app
 
-## Code scaffolding
+    npm install
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+    npm start
 
-## Build
+Go to localhost:3000 to view the app
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## User Stories
 
-## Running unit tests
+The following **required** functionality is completed:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- [X] Able to load and display the deals returned from api: GET https://tuangou.grubmarket.com/api/deals 
+- [X] Clicking on one of the deals should navigate to the deal details page.
+- [X] Should display the details by using content returned from "GET  https://tuangou.grubmarket.com/api/deals/{dealId} API"
+- [X] Should remember scroll position in deals page so that we coming back from the details page, it's positioned at the deal user last viewed.
+- [X] For deals sold by GrubMarket (the ones with "GM" icon and labeled “官方团购" at the top of the details page) such as "https://tuangou.grubmarket.com/#/deals/49d20b44-0cdc-4a2d-9d80-b8281d0a993c". 
+- [X] Each product in the deal has a category classification. Design a filter in details page to filter products by category
 
-## Running end-to-end tests
+The following **optional** features are implemented:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+- [X] Implemented infinite loading on deals
+- [X] Added spinner when fetching data
+- [X] Navigation Bar, containing Logo, "主页", "热帖", "团购", "注册" and "登入"
+- [X] Filters to filter Official deals, or/and Active deals.
+- [X] Animation when hover on the deal
+- [X] Include view counts, likes counts, orders counts in deal
+- [X] Sticky "结算" button on the deal-detail view
+- [X] Able to hide and show more pickup locations
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## License
+
+    Copyright [2017] [Jiapei Liang]
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
