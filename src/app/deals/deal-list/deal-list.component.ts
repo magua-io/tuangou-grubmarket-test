@@ -50,7 +50,10 @@ export class DealListComponent implements OnInit {
   @HostListener("window:scroll", ["$event"])
   onWindowScroll() {
     let pos = document.body.scrollTop;
-    let max = this.dealList.nativeElement.scrollHeight;
+    var max = 10000000;
+    if (this.dealList) {
+      max = this.dealList.nativeElement.scrollHeight;
+    }
     if (max - pos < 1000 && !this.dealService.isFetching && !this.dealService.noMoreDeals) {
       this.dealService.fetchMoreDeals();
     }

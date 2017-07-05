@@ -69,6 +69,12 @@ export class DealService {
     this.isOrderFetching = false;
   }
 
+  addOrders(orders: any[]) {
+    this.orders.push(...orders);
+    this.ordersChanged.next(this.orders.slice());
+    this.isOrderFetching = false;
+  }
+
   fetchDeals() {
 
     // reset page and noMoreDeals
@@ -183,6 +189,36 @@ export class DealService {
         this.setOrders(orders);
       }
     );
+  }
+
+  fetchMoreOrders(id: string) {
+    this.orderPage += 1;
+    this.isOrderFetching = true;
+    console.log("page: ", this.orderPage);
+    this.http.get('https://tuangou.grubmarket.com/api/deals/' + id + '/orders?page=' + this.orderPage, {
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer c2669247-877e-4eac-aaba-d8de5569af7d',
+        'Accept-Language': 'zh-CN'
+      })
+    })
+      .map(
+        (response: Response) => {
+          console.log("response: ", response.json());
+          const orders: any[] = response.json()['content'];
+          console.log("Got more orders: ", orders);
+          if (orders.length == 0) {
+            console.log("No more orders");
+            this.noMoreOrders = true;
+          }
+          return orders;
+        }
+      )
+      .subscribe(
+        (orders: Deal[]) => {
+          this.addOrders(orders);
+        }
+      );
   }
 
   

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
@@ -15,6 +15,8 @@ import { Deal } from '../deal.model';
   styleUrls: ['./deal-detail.component.css']
 })
 export class DealDetailComponent implements OnInit {
+
+  @ViewChild('dealDetail') private dealDetail: ElementRef;
 
   subscription: Subscription;
   ordersSubscription: Subscription;
@@ -109,6 +111,18 @@ export class DealDetailComponent implements OnInit {
 
   getLastestOrderTimeFromNow(timestamp: number) {
     return this.timeService.fromNow(timestamp);
+  }
+
+  @HostListener("window:scroll", ["$event"])
+  onWindowScroll() {
+    let pos = document.body.scrollTop;
+    var max = 100000000;
+    if (this.dealDetail) {
+      max = this.dealDetail.nativeElement.scrollHeight;
+    }
+    if (max - pos < 1000 && !this.dealService.isOrderFetching && !this.dealService.noMoreOrders) {
+      this.dealService.fetchMoreOrders(this.id);
+    }
   }
 
 }
