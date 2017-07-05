@@ -34,7 +34,9 @@ The following **optional** features are implemented:
 - [X] Sticky "结算" button on the deal-detail view
 - [X] Able to hide and show more pickup locations
 
+The following **Bonus** features are implemented:
 
+- [X] improve performance by reducing payload size, only load resources (e.g. images) when in viewing area, use cached content.
 
 ## License
 
