@@ -48,6 +48,13 @@ The following **Bonus** features are implemented:
 
 - [X] improve performance by reducing payload size, only load resources (e.g. images) when in viewing area, use cached content.
 
+## Screenshots
+
+![screenshot 1](./screenshots/screenshot1.png)
+![screenshot 2](./screenshots/screenshot2.png)
+![screenshot 3](./screenshots/screenshot3.png)
+![screenshot 4](./screenshots/screenshot4.png)
+
 ## License
 
     Copyright [2017] [Jiapei Liang]
