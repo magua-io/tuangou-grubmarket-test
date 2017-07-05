@@ -22,6 +22,10 @@ export class DealDetailComponent implements OnInit {
   id: string;
   isAddressExpand: boolean = false;
 
+  categories: string[] = [];
+
+  category: string;
+
   constructor(
     private dealService: DealService,
     private timeService: TimeService,
@@ -41,6 +45,12 @@ export class DealDetailComponent implements OnInit {
       (deal: Deal) => {
         this.deal = deal;
         console.log("Succesffuly got deals: ", this.deal);
+
+        for (let dealItem of deal.dealItems) {
+          if (!this.categories.includes(dealItem.category.name)) {
+            this.categories.push(dealItem.category.name);
+          }
+        }
       }
     );
 
@@ -50,6 +60,8 @@ export class DealDetailComponent implements OnInit {
         this.dealService.fetchDeal(this.id);
       }
     )
+
+    
   }
 
   onGetTime() {
@@ -77,6 +89,11 @@ export class DealDetailComponent implements OnInit {
   toggleAddress() {
     console.log(this.isAddressExpand);
     this.isAddressExpand = !this.isAddressExpand;
+  }
+
+  onFilterChange(selectedCategory: string) {
+    this.category = selectedCategory;
+    console.log("Change category to ", selectedCategory);
   }
 
 }

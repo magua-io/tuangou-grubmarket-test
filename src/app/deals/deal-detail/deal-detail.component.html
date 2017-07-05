@@ -1,4 +1,4 @@
-<div class="top-spinner" *ngIf="!deal">
+<div class="spinner" *ngIf="!deal">
   <md-spinner></md-spinner>
 </div>
 
@@ -55,9 +55,25 @@
             
           </div>
         </div>
+
+        <div class="category-filter">
+
+          <label>Category Filter:</label>
+          <select class="form-control" (change)="onFilterChange($event.target.value)">
+            <option value="All" selected>All</option>
+            <option 
+              *ngFor="let categoryElm of categories"
+              [value]="categoryElm"
+            >
+              {{ categoryElm }}
+            </option>
+          </select>
+
+        </div>
+
         <div class="deal-item-container">
           <app-deal-item
-            *ngFor="let dealItemElm of deal.dealItems"  
+            *ngFor="let dealItemElm of deal.dealItems | dealItemCategoryPipe:this.category"  
             [dealItem]="dealItemElm"
           >
           </app-deal-item>
