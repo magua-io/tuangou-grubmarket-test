@@ -37,7 +37,7 @@
 
   <div class="row clearfix lastest-order" *ngIf="orders && orders.length > 0">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 ">
-        <img class="avatar" [src]="orders[0].owner.profileImage">
+        <img class="avatar" [src]="orders[0].owner.profileImage || 'assets/default_profile.svg'">
         {{ orders[0].owner.displayName }} {{ getLastestOrderTimeFromNow(orders[0].purchaseDate) }} 已下单，快与{{ deal.orderCount - 1 }}个邻居一起省
       </div>
   </div>

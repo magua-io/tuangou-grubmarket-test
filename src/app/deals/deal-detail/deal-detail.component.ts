@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, HostListener, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
@@ -14,12 +14,13 @@ import { Deal } from '../deal.model';
   templateUrl: './deal-detail.component.html',
   styleUrls: ['./deal-detail.component.css']
 })
-export class DealDetailComponent implements OnInit {
+export class DealDetailComponent implements OnInit, OnDestroy {
 
   @ViewChild('dealDetail') private dealDetail: ElementRef;
 
   subscription: Subscription;
   ordersSubscription: Subscription;
+  countdownSubscription: Subscription;
   timeleft: number;
   deal: Deal;
   id: string;
@@ -41,7 +42,7 @@ export class DealDetailComponent implements OnInit {
   ngOnInit() {
     this.timeleft = this.deal ? Date.now() - this.deal.endTime : 0;
     let countdown = Observable.interval(1000);
-    countdown.subscribe(
+    this.countdownSubscription = countdown.subscribe(
       (timestamp: number) => {
         this.timeleft -= 1000;
       }
@@ -75,6 +76,12 @@ export class DealDetailComponent implements OnInit {
     )
 
     
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+    this.ordersSubscription.unsubscribe();
+    this.countdownSubscription.unsubscribe();
   }
 
   onGetTime() {
