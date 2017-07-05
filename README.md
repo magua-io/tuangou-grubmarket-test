@@ -12,6 +12,14 @@ To run this app
 
 Go to localhost:3000 to view the app
 
+## Note
+
+For the retain previous scroll position, you can change the delayed time in
+    
+    /node_modules/delayed-scroll-restoration-polyfill/index.js
+
+    change the value of var SCROLL_RESTORATION_TIMEOUT_MS
+
 ## User Stories
 
 The following **required** functionality is completed:
